@@ -11,25 +11,26 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|Faster+One" rel="stylesheet">
+    <!-- Firebase Call -->
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <!-- Link to Moment.js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <!-- Jumbotron -->
-        <div class="row">
-            <div class="title">
-                <h1 style="font-size: 70px;">TRAIN SCHEDULE EXPRESS</h1>
-                <img src="assets/images/train.png" style="width: 10%; filter:opacity(40%);">
-                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                <img src="assets/images/train.png" style="width: 10%; filter:opacity(70%);">
-                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                <img src="assets/images/train.png" style="width: 10%;">
-                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                <img src="assets/images/train.png" style="width: 10%; filter:opacity(70%);">
-                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                <img src="assets/images/train.png" style="width: 10%; filter:opacity(40%);">
-            </div>
+    <!-- Jumbotron -->
+    <div class="row">
+        <div class="title jumbotron">
+            <h1 style="font-size: 70px;">TRAIN SCHEDULE EXPRESS</h1>
+            <img src="assets/images/train.png" style="width: 10%; filter:opacity(40%);"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+            <img src="assets/images/train.png" style="width: 10%; filter:opacity(70%);"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+            <img src="assets/images/train.png" style="width: 10%;"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+            <img src="assets/images/train.png" style="width: 10%; filter:opacity(70%);"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+            <img src="assets/images/train.png" style="width: 10%; filter:opacity(40%);">
         </div>
+    </div>
+    <div class="container">
+
         <!-- Current Train Schedule -->
         <div class="row">
             <div class="panel panel-default">
@@ -60,6 +61,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Add a Train -->
         <div class="row">
             <div class="panel panel-default">
@@ -70,20 +72,24 @@
                     <form>
                         <div class="form-group">
                             <label for="">Train Name</label>
-                            <input type="text" class="form-control" id="">
+                            <input type="text" class="form-control" id="name-input">
                             <label for="">Destination</label>
-                            <input type="text" class="form-control" id="">
+                            <input type="text" class="form-control" id="destination-input">
                             <label for="">First Train Time (HH:mm - military time)</label>
-                            <input type="text" class="form-control" id="">
+                            <input type="text" class="form-control" id="time-input">
                             <label for="">Frequency (min)</label>
-                            <input type="number" class="form-control" id="">
+                            <input type="number" class="form-control" id="frequency-input">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" id="submitForm">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
+        
     </div>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="assets/javascript/logic.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
 </body>
 
 </html>

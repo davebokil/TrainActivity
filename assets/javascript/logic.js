@@ -62,19 +62,61 @@ $(document).ready(function() {
 		    });
 	    });
 
+
+
 	    // Firebase watcher + initial loader
     	dataRef.ref().on("child_added", function(childSnapshot) {
 
-			// Log everything that's coming out of snapshot
-			console.log(childSnapshot.val().trainName);
-			console.log(childSnapshot.val().destination);
-			console.log(childSnapshot.val().time);
-			console.log(childSnapshot.val().frequency);
+			// --- Log all data from the snapshot ---
+			// console.log(childSnapshot.val().trainName);
+			// console.log(childSnapshot.val().destination);
+			// console.log(childSnapshot.val().time);
+			// console.log(childSnapshot.val().frequency);
 
+			// --- Moment Calculations --- 
+
+			// Frequency of Train stored in variable
+    		var tFrequency = childSnapshot.val().frequency;
+    		console.log("User input frequency: " + tFrequency)
+
+    		// First train time stored in variable
+    		var firstTime = childSnapshot.val().time;
+    		console.log("User input first train time " + firstTime)
+
+    		// First Time (pushed back 1 year to make sure it comes before current time)
+    		var firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
+    		console.log(firstTimeConverted);
+    		console.log(moment(firstTimeConverted, "hh:mm"))
+
+		    // Current Time
+		    var currentTime = moment();
+		    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+		    // Difference between the times
+    		var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    		console.log("DIFFERENCE IN TIME: " + diffTime);
+
+    		// Time apart (remainder)
+		    var tRemainder = diffTime % tFrequency;
+		    console.log(tRemainder);
+
+		    // Minute Until Train
+		    var tMinutesTillTrain = tFrequency - tRemainder;
+		    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+		    // Next Train
+		    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+		    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+
+
+			// append data to train table
 			$(".table tbody").append(
 				"<tr><td>" + childSnapshot.val().trainName + 
 				"</td><td>" + childSnapshot.val().destination +
-				"</td><td>" + childSnapshot.val().frequency);
+				"</td><td>" + childSnapshot.val().frequency +
+				"</td><td>" + childSnapshot.val().time +
+				"</td><td>" + moment(nextTrain).format("hh:mm") +
+				"</td><td>" + tMinutesTillTrain);
 	    })  
 
 
@@ -82,10 +124,3 @@ $(document).ready(function() {
 
 // Wrapper End
 })
-
-
-// Moment JS Experimentation
-// ---------------
-// var convertedDate = moment(new Date());
-// console.log(moment(convertedDate).format('MMMM Do YYYY, h:mm:ss a'));
-// $("#time").html(moment(convertedDate).format('MMMM Do YYYY, h:mm:ss a'));

@@ -15,6 +15,13 @@
 $(document).ready(function() {
 
 
+	// Current Time Display
+	function update() {
+		$('#clock').html(moment().format('H:mm:ss'));
+	}
+	setInterval(update, 1000);
+
+
     // Variables
     // ------------------------------------------------------------------------------------
     	// Initial Form Values

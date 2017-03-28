@@ -1,33 +1,33 @@
-/*Palette:
-
-http://www.colourlovers.com/palette/2164733/VintageRoadMoviePuss
-*/
-
 body {
-	background-color: #e90000;
-	/*font-family: 'Anonymous Pro', monospace;*/
-
+    background-color: #e90000;
+    /*font-family: 'Anonymous Pro', monospace;*/
 }
 
 .title {
-	border-bottom: solid;
-	border-width: 3px;
-	border-color: black;
-	background-color: #eceeef;
-	color: black;
-	font-family: 'Faster One', cursive;
-	text-align: center;
-	margin-bottom: 15px;
+    border-bottom: solid;
+    border-width: 3px;
+    border-color: black;
+    background-color: #eceeef;
+    color: black;
+    font-family: 'Faster One', cursive;
+    /*font-family:'digital-clock-font';*/
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 .panel {
-	border-style: solid;
-	border-width: 3px;
-	border-color: black;
-	color: black;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    color: black;
 }
 
+.clock {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Wallpoet', cursive;
+}
 
 label {
-	margin:5px;
+    margin: 5px;
 }

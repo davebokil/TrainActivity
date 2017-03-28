@@ -17,7 +17,8 @@ $(document).ready(function() {
 
 	// Current Time Display
 	function update() {
-		$('#clock').html(moment().format('H:mm:ss'));
+		// $('#clock').html(moment().format('H:mm:ss'));
+		$('#clock').html(moment().format("dddd MMMM Do YYYY, h:mm:ss a"));
 	}
 	setInterval(update, 1000);
 

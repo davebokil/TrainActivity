@@ -3,6 +3,11 @@ body {
     /*font-family: 'Anonymous Pro', monospace;*/
 }
 
+@font-face {
+   font-family: digital;
+   src: url(digital-7italic.ttf);
+}
+
 .title {
     border-bottom: solid;
     border-width: 3px;
@@ -23,9 +28,10 @@ body {
 }
 
 .clock {
-    text-align: center;
+    /*text-align: center;*/
     font-size: 40px;
-    font-family: 'Wallpoet', cursive;
+    /*font-family: 'Wallpoet', cursive;*/
+    font-family: digital;
 }
 
 label {
